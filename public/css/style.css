@@ -1,0 +1,26 @@
+h1{
+    text-align: center;
+}
+
+.teams{
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+ul{
+    padding: 0;
+}
+
+li{
+    list-style-type: none;
+    text-align: center;
+}
+
+.trash{
+    width: 7%;
+}
+
+.deleteTeam1{
+    cursor: pointer;
+}

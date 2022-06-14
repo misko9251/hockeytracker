@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css"   href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Youth Hockey Game Tracker</h1>
+    </header>
+    <section class="teams">
+        <section>
+            <h2>Home Team</h2>
+            <form action="/homeTeam" method="POST">
+                <input type="text" placeholder="Insert Home Team" name="homeTeam">
+                <input value="Enter" type="submit">
+            </form>
+            <h3>
+                <ul class="firstTeam">
+                    <% for(var i = 0; i < name.length; i++) {%>
+                      <li class="quote">
+                        <span><%= name[i].homeTeam %></span>
+                        <span class="deleteTeam1"><img class="trash" src="photos/trash.png"></span>
+                      </li>
+                    <% } %>
+                  </ul>
+            </h3>
+            <section>
+                <h3>Home Roster</h3>
+            </section>
+        </section>
+        <section>
+            <h2>Away Team</h2>
+            <form action="/awayTeam" method="POST">
+                <input type="text" placeholder="Insert Away Team" name="awayTeam">
+                <input value="Enter" type="submit">
+            </form>
+            <h3>
+                <ul class="secondTeam">
+                    <% for(var i = 0; i < name2.length; i++) {%>
+                      <li class="quote">
+                        <span><%= name2[i].awayTeam %></span>
+                        <span class="deleteTeam2"><img class="trash" src="photos/trash.png"></span>
+                      </li>
+                    <% } %>
+                  </ul>
+            </h3>
+            <section>
+                <h3>Away Roster</h3>
+            </section>
+        </section>
+    </section>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
