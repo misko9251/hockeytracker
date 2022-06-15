@@ -18,12 +18,16 @@ app.use(express.json())
 
 
 app.get('/', (request, response)=>{
-    db.collection('home').find().toArray().then(results=>{
-        db.collection('away').find().toArray().then(results2 => {
-            response.render('index.ejs', {name: results, name2: results2})
-        })
-    })
+    response.render('main.ejs')
 })
+
+// app.get('/', (request, response)=>{
+//     db.collection('home').find().toArray().then(results=>{
+//         db.collection('away').find().toArray().then(results2 => {
+//             response.render('index.ejs', {name: results, name2: results2})
+//         })
+//     })
+// })
 
 app.post('/homeTeam', (request, response)=>{
     db.collection('home').insertOne({homeTeam: request.body.homeTeam})
@@ -36,7 +40,7 @@ app.post('/homeTeam', (request, response)=>{
 app.delete('/deleteHomeTeam', (request, response) => {
     db.collection('home').deleteOne({homeTeam: request.body.teamToDelete})
     .then(result => {
-        console.log('Trick Deleted')
+        console.log('Team Deleted')
         console.log(request.body)
         response.json('OK')
     })
@@ -55,7 +59,7 @@ app.post('/awayTeam', (request, response)=>{
 app.delete('/deleteAwayTeam', (request, response) => {
     db.collection('away').deleteOne({awayTeam: request.body.teamToDelete2})
     .then(result => {
-        console.log('Trick Deleted')
+        console.log('Team Deleted')
         console.log(request.body)
         response.json('OK')
     })

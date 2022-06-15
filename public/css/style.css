@@ -1,4 +1,50 @@
-h1{
+/* CSS RESET */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+.trackerTitle{
     text-align: center;
 }
 
@@ -21,6 +67,103 @@ li{
     width: 7%;
 }
 
-.deleteTeam1{
+.deleteTeam1, .deleteTeam2{
     cursor: pointer;
+}
+
+/* Main Page */
+
+header{
+    background-image: url("/photos/hockeyheader.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 400px;
+    color: black;
+    background-position-y: -100px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-direction: column;
+}
+
+.main-title{
+    font-size: 94px;
+    text-shadow: 2px 2px #EAF4F8;
+    width: 50%;
+    padding-right: 5%;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+.main-title + p {
+    width: 50%;
+    padding-bottom: 8%;
+    padding-right: 5%;
+    font-family: 'Joan', serif;
+}
+
+.middle-container{
+    height: 300px;
+    background-color: #EAF4F8;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.middle-header{
+    text-decoration: underline;
+    font-size: 30px;
+    padding-top: 3%;
+    text-align: center;
+    font-family: 'Joan', serif;
+}
+
+.middle-header + p{
+    text-align: center;
+    font-family: 'Joan', serif;
+    padding: 5%;
+}
+
+.orange{
+    width: 30%;
+    height: 50%; 
+    background-color: #DA6B46;
+    border-radius: 20px;
+}
+
+footer{
+    display: flex;
+    height: 300px;
+    flex-direction: column;
+    background-color: #696E74;
+    align-items: center;
+}
+
+footer > h2, footer > h2 + p{
+    text-align: center;
+    color: white;
+}
+
+footer > h2{
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 40px;
+    padding-top: 5%;
+}
+
+footer > h2 + p {
+    font-size: 15px;
+    font-family: 'Joan', serif;
+    width: 70%;
+    padding: 9px 0px;
+}
+
+footer > button{
+    width: 25%;
+    height: 30px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+footer > button:hover{
+    background-color: rgb(0, 0, 0);
+    color: white;
 }
