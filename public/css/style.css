@@ -73,7 +73,7 @@ li{
 
 /* Main Page */
 
-header{
+.puckTrackerMainPage{
     background-image: url("/photos/hockeyheader.jpg");
     background-size: cover;
     background-repeat: no-repeat;

@@ -21,13 +21,13 @@ app.get('/', (request, response)=>{
     response.render('main.ejs')
 })
 
-// app.get('/', (request, response)=>{
-//     db.collection('home').find().toArray().then(results=>{
-//         db.collection('away').find().toArray().then(results2 => {
-//             response.render('index.ejs', {name: results, name2: results2})
-//         })
-//     })
-// })
+app.get('/enterInfo', (request, response)=>{
+    db.collection('home').find().toArray().then(results=>{
+        db.collection('away').find().toArray().then(results2 => {
+            response.render('index.ejs', {name: results, name2: results2})
+        })
+    })
+})
 
 app.post('/homeTeam', (request, response)=>{
     db.collection('home').insertOne({homeTeam: request.body.homeTeam})
