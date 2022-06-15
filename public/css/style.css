@@ -164,6 +164,12 @@ footer > button{
 }
 
 footer > button:hover{
-    background-color: rgb(0, 0, 0);
-    color: white;
+    background-color: #DA6B46;
+    color: rgb(146, 140, 140);
 }
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
