@@ -24,7 +24,9 @@ app.get('/', (request, response)=>{
 app.get('/enterInfo', (request, response)=>{
     db.collection('home').find().toArray().then(results=>{
         db.collection('away').find().toArray().then(results2 => {
-            response.render('index.ejs', {name: results, name2: results2})
+            db.collection('players').find().toArray().then(results3 =>{
+                response.render('index.ejs', {name: results, name2: results2, data: results3})
+            })
         })
     })
 })
@@ -32,7 +34,7 @@ app.get('/enterInfo', (request, response)=>{
 app.post('/homeTeam', (request, response)=>{
     db.collection('home').insertOne({homeTeam: request.body.homeTeam})
     .then(result =>{
-        response.redirect('/')
+        response.redirect('/enterInfo')
     })
     .catch(error => console.log(error))
 })
@@ -51,7 +53,7 @@ app.delete('/deleteHomeTeam', (request, response) => {
 app.post('/awayTeam', (request, response)=>{
     db.collection('away').insertOne({awayTeam: request.body.awayTeam})
     .then(result =>{
-        response.redirect('/')
+        response.redirect('/enterInfo')
     })
     .catch(error => console.log(error))
 })
@@ -65,6 +67,14 @@ app.delete('/deleteAwayTeam', (request, response) => {
     })
     .catch(error => console.error(error))
 
+})
+
+app.post('/addPlayer', (request, response)=>{
+    db.collection('players').insertOne({playerName: request.body.playerName, gp: 0, g: 0, a: 0, p: 0, pim: 0, ppg: 0, ppp: 0})
+    .then(result=>{
+        response.redirect('/enterInfo')
+    })
+    .catch(error => console.log(error))
 })
 
 app.listen(PORT, () =>{

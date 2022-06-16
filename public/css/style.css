@@ -46,25 +46,25 @@ table {
 
 .trackerTitle{
     text-align: center;
+    font-size: 35px;
+    font-family: 'Titillium Web', sans-serif;
+    height: 75px;
+    background-color: #696E74;
+    color: white;
+    text-shadow: 2px 2px black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.teams{
-    display: flex;
-    justify-content: space-around;
-    text-align: center;
-}
 
 ul{
     padding: 0;
+    display:inline;
 }
 
 li{
-    list-style-type: none;
-    text-align: center;
-}
-
-.trash{
-    width: 7%;
+    display: inline;
 }
 
 .deleteTeam1, .deleteTeam2{
@@ -173,3 +173,73 @@ a{
     color: black;
 }
 
+/* Split Section */
+
+.splitContainer{
+    display:flex;
+}
+
+.tableContainer, .gameflowContainer{
+    border: 1px solid black;
+    width: 50%;
+    height: 300px;
+    font-family: 'Joan', serif;
+    background-color: #D9D9D9;
+    text-align: center;
+}
+
+.pickTeams{
+    display:flex;
+    justify-content: space-between;
+}
+
+.trash{
+    width: 5%;
+}
+
+.homeTeam, .awayTeam{
+    padding: 15px;
+    height: 75px;
+}
+
+.opponents{
+    border: 2px solid pink;
+}
+
+/* Table Styles */
+
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+    border:1px solid black;
+    width: 40%;
+}
+
+th,
+td {
+  padding: 10px 15px;
+}
+
+thead {
+  background: #696E74;
+  color: #fff;
+}
+
+td {
+    border-bottom: 1px solid #cecfd5;
+    border-right: 1px solid #cecfd5;
+}
+
+tbody tr:nth-child(even) {
+    background: #faf1f1;
+
+}
+
+.minus, .add{
+    cursor: pointer;
+}
+
+.gameflow{
+    margin-top: 20px;
+    width: 40%;
+}

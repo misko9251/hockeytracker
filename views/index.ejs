@@ -5,54 +5,100 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@1,600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Joan&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css"   href="css/style.css">
 </head>
 <body>
+
+
     <header>
-        <h1 class="trackerTitle">Youth Hockey Game Tracker</h1>
+        <h1 class="trackerTitle">PuckTracker</h1>
     </header>
-    <section class="teams">
-        <section>
-            <h2>Home Team</h2>
-            <form action="/homeTeam" method="POST">
-                <input type="text" placeholder="Insert Home Team" name="homeTeam">
+
+    <section class="splitContainer">
+
+        <section class="tableContainer">
+            <h2>HOME TEAM ROSTER</h2>
+            <form action="/addPlayer" method="POST">
+                <input type="text" placeholder="Insert Player Name" name="playerName">
                 <input value="Enter" type="submit">
             </form>
-            <h3>
-                <ul class="firstTeam">
-                    <% for(var i = 0; i < name.length; i++) {%>
-                      <li class="quote">
-                        <span><%= name[i].homeTeam %></span>
-                        <span class="deleteTeam1"><img class="trash" src="photos/trash.png"></span>
-                      </li>
-                    <% } %>
-                  </ul>
-            </h3>
-            <section>
-                <h3>Home Roster</h3>
-            </section>
+            <table>
+                   <thead>
+                       <tr>
+                           <th>Name</th>
+                           <th>GP</th>
+                           <th>G</th>
+                           <th>A</th>
+                           <th>P</th>
+                           <th>PIM</th>
+                           <th>PPG</th>
+                           <th>PPP</th>
+                       </tr>
+                   </thead>
+                            <% for(var i=0; i < data.length; i++) { %>
+                                <tr>
+                                  <td><%= data[i].playerName %></td>
+                                  <td><%= data[i].gp %></td>
+                                  <td><%= data[i].g %></td>
+                                  <td><%= data[i].a %></td>
+                                  <td><%= data[i].p %></td>
+                                  <td><%= data[i].pim %></td>
+                                  <td><%= data[i].ppg %></td>
+                                  <td><%= data[i].ppp %></td>
+                                </tr>
+                             <% } %>
+            </table>
         </section>
-        <section>
-            <h2>Away Team</h2>
-            <form action="/awayTeam" method="POST">
-                <input type="text" placeholder="Insert Away Team" name="awayTeam">
-                <input value="Enter" type="submit">
-            </form>
-            <h3>
-                <ul class="secondTeam">
-                    <% for(var i = 0; i < name2.length; i++) {%>
-                      <li class="quote">
-                        <span><%= name2[i].awayTeam %></span>
-                        <span class="deleteTeam2"><img class="trash" src="photos/trash.png"></span>
-                      </li>
-                    <% } %>
-                  </ul>
-            </h3>
-            <section>
-                <h3>Away Roster</h3>
+
+        <section class="gameflowContainer">
+            <section class="pickTeams">
+                <section class="homeTeam">
+                    <h2>Home Team</h2>
+                    <form action="/homeTeam" method="POST">
+                        <input type="text" placeholder="Insert Home Team" name="homeTeam">
+                        <input value="Enter" type="submit">
+                    </form>
+                    <h3>
+                        <ul class="firstTeam">
+                            <% for(var i = 0; i < name.length; i++) {%>
+                              <li class="quote">
+                                <span><%= name[i].homeTeam %></span>
+                                <span class="deleteTeam1"><img class="trash" src="photos/trash.png"></span>
+                              </li>
+                            <% } %>
+                          </ul>
+                    </h3>
+                </section>
+                <section class="awayTeam">
+                    <h2>Away Team</h2>
+                    <form action="/awayTeam" method="POST">
+                        <input type="text" placeholder="Insert Away Team" name="awayTeam">
+                        <input value="Enter" type="submit">
+                    </form>
+                    <h3>
+                        <ul class="secondTeam">
+                            <% for(var i = 0; i < name2.length; i++) {%>
+                              <li class="quote">
+                                <span><%= name2[i].awayTeam %></span>
+                                <span class="deleteTeam2"><img class="trash" src="photos/trash.png"></span>
+                              </li>
+                            <% } %>
+                          </ul>
+                    </h3>
+                </section>
             </section>
         </section>
     </section>
+
+
+
+    
 
     <script src="js/main.js"></script>
 </body>
