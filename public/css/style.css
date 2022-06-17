@@ -179,7 +179,7 @@ a{
     display:flex;
 }
 
-.tableContainer, .gameflowContainer{
+.gameflowContainer{
     border: 1px solid black;
     width: 50%;
     height: 300px;
@@ -206,13 +206,13 @@ a{
     border: 2px solid pink;
 }
 
-/* Table Styles */
+/* Table Styles and new styles for page */
 
 table {
     border-collapse: separate;
     border-spacing: 0;
     border:1px solid black;
-    width: 40%;
+    margin: 0 auto;
 }
 
 th,
@@ -228,10 +228,16 @@ thead {
 td {
     border-bottom: 1px solid #cecfd5;
     border-right: 1px solid #cecfd5;
+    /* white-space: nowrap; */
 }
 
 tbody tr:nth-child(even) {
-    background: #faf1f1;
+    background: #d4f3f0;
+
+}
+
+tbody tr:nth-child(odd) {
+    background: white;
 
 }
 
@@ -242,4 +248,119 @@ tbody tr:nth-child(even) {
 .gameflow{
     margin-top: 20px;
     width: 40%;
+}
+
+/* New Styles */
+
+nav{
+    height: 25px;
+    font-family: 'Joan', serif;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    border: 1px solid black;
+    background: #30d5c8;
+    border: 2px solid black;
+    color: black;
+}
+
+nav > h3{
+    font-family: 'Rubik', sans-serif;
+    font-size: 30px;
+}
+
+nav > h3 + ul > li {
+    margin: 10px;
+}
+
+.headerContainer{
+    height: 100vh;
+    background-color: #a4508b;
+    background-image: linear-gradient(to bottom, #a4508b 0%, #5f0a87 74%);
+    
+}
+
+.headerContainer > header > h1{
+    padding-top: 5%;
+    color: white;
+    font-family: 'Rubik', sans-serif;
+    font-size: 40px;
+    text-align: center;
+}
+
+.headerContainer > header > h1 + p{
+    padding-top: 2%;
+    color: white;
+    font-family: 'Rubik', sans-serif;
+    font-size: 20px;
+    text-align: center;
+}
+
+.rosterContainer{
+    border-radius: 5px;
+    background-color: #EAF4F8;
+    margin: 2% 5%;
+    padding-bottom: 5%;
+}
+
+.rosterContainer > header{
+    padding-top: 1%;
+    text-align: center;
+    font-family: 'Rubik', sans-serif;
+}
+
+.tableContainer > form{
+    text-align: center;
+    margin: 1% 1%;
+}
+
+
+/* Button */
+.gameflowButton > button{
+  background: black;
+  border: 1px solid #30d5c8;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-sizing: border-box;
+  color: #30d5c8;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Rubik', sans-serif;
+  font-size: 16px;
+  outline: 0;
+  padding: 12px 14px;
+  text-align: center;
+}
+
+.gameflowButton > button:hover{
+    background: #30d5c8;
+    color: black;
+}
+
+.gameflowButton{
+    text-align: center;
+}
+
+/* Input Button */
+
+input[type=submit]{
+    background-color: #30d5c8;
+    font-family: 'Rubik', sans-serif;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover{
+    background-color: #a0acab;
+    font-family: 'Rubik', sans-serif;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+input[type=text]{
+    background-color: white;
+    font-family: 'Rubik', sans-serif;
+    border-radius: 20px;
+    text-align: center;
 }

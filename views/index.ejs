@@ -11,52 +11,73 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Joan&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css"   href="css/style.css">
 </head>
 <body>
-
-
-    <header>
-        <h1 class="trackerTitle">PuckTracker</h1>
-    </header>
-
-    <section class="splitContainer">
-
-        <section class="tableContainer">
-            <h2>HOME TEAM ROSTER</h2>
-            <form action="/addPlayer" method="POST">
-                <input type="text" placeholder="Insert Player Name" name="playerName">
-                <input value="Enter" type="submit">
-            </form>
-            <table>
-                   <thead>
-                       <tr>
-                           <th>Name</th>
-                           <th>GP</th>
-                           <th>G</th>
-                           <th>A</th>
-                           <th>P</th>
-                           <th>PIM</th>
-                           <th>PPG</th>
-                           <th>PPP</th>
-                       </tr>
-                   </thead>
-                            <% for(var i=0; i < data.length; i++) { %>
-                                <tr>
-                                  <td><%= data[i].playerName %></td>
-                                  <td><%= data[i].gp %></td>
-                                  <td><%= data[i].g %></td>
-                                  <td><%= data[i].a %></td>
-                                  <td><%= data[i].p %></td>
-                                  <td><%= data[i].pim %></td>
-                                  <td><%= data[i].ppg %></td>
-                                  <td><%= data[i].ppp %></td>
-                                </tr>
-                             <% } %>
-            </table>
+    <nav>
+        <h3>PuckTracker</h3>
+        <ul>
+            <li>Home</li>
+            <li>Roster</li>
+            <li>Gameflow</li>
+            <li>FAQ</li>
+        </ul>
+    </nav>
+    <section class="headerContainer">
+        <header >
+            <h1>SET YOUR ROSTER AND KEEP TRACK</h1>
+            <p>Keep track of the entire squad with the simple interface provided below.</p>
+        </header>
+        <section class="rosterContainer">
+            <header>
+                <h3>Home Team Roster</h3>
+                <p>Check out our FAQ for clarification</p>
+            </header>
+            <section class="tableContainer">
+                <form action="/addPlayer" method="POST">
+                    <input type="text" placeholder="Insert Player Name" name="playerName">
+                    <input value="Enter" type="submit">
+                </form>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>GP</th>
+                            <th>G</th>
+                            <th>A</th>
+                            <th>P</th>
+                            <th>PIM</th>
+                            <th>PPG</th>
+                            <th>PPP</th>
+                        </tr>
+                    </thead>
+                             <% for(var i=0; i < data.length; i++) { %>
+                                 <tr>
+                                   <td><%= data[i].playerName %></td>
+                                   <td><span class="subtract">- </span><%= data[i].gp %><span class="add"> +</span></td>
+                                   <td><span class="subtract">- </span><%= data[i].g %><span class="add"> +</span></td>
+                                   <td><span class="subtract">- </span><%= data[i].a %><span class="add"> +</span></td>
+                                   <td><span class="subtract">- </span><%= data[i].p %><span class="add"> +</span></td>
+                                   <td><span class="subtract">- </span><%= data[i].pim %><span class="add"> +</span></td>
+                                   <td><span class="subtract">- </span><%= data[i].ppg %><span class="add"> +</span></td>
+                                   <td><span class="subtract">- </span><%= data[i].ppp %><span class="add"> +</span></td>
+                                 </tr>
+                              <% } %>
+             </table>
+            </section>
         </section>
+        <section class="gameflowButton">
+            <button>HEAD TO GAMEFLOW</button>
+        </section>
+    </section>
+    <script src="js/main.js"></script>
+</body>
+</html>
 
-        <section class="gameflowContainer">
+        <!-- <section class="gameflowContainer">
             <section class="pickTeams">
                 <section class="homeTeam">
                     <h2>Home Team</h2>
@@ -94,12 +115,5 @@
                 </section>
             </section>
         </section>
-    </section>
+ -->
 
-
-
-    
-
-    <script src="js/main.js"></script>
-</body>
-</html>
