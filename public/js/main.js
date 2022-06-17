@@ -1,3 +1,5 @@
+// Add name of home team
+
 const deleteTeamOne = document.querySelectorAll('.deleteTeam1')
 
 Array.from(deleteTeamOne).forEach((element)=>{
@@ -24,6 +26,8 @@ async function deleteHomeTeam(){
     }
 }
 
+// Delete name of away team
+
 const deleteTeamTwo = document.querySelectorAll('.deleteTeam2')
 
 Array.from(deleteTeamTwo).forEach((element)=>{
@@ -49,6 +53,8 @@ async function deleteAwayTeam(){
         console.log(err)
     }
 }
+
+// Remove player from roster
 
 const deletePlayerName = document.querySelectorAll('.trashCan')
 
@@ -85,26 +91,161 @@ Array.from(addOneGP).forEach(element=>{
 })
 
 async function addGP(){
-    const gPlayed = this.parentNode.childNodes[1]
+    const playerName = this.parentNode.parentNode.childNodes[1].innerText
+    const gPlayed = +this.parentNode.childNodes[1].data
+    const g = +this.parentNode.parentNode.childNodes[5].childNodes[1].data
+    const a = +this.parentNode.parentNode.childNodes[7].childNodes[1].data
+    const p = +this.parentNode.parentNode.childNodes[9].childNodes[1].data
+    const pim = +this.parentNode.parentNode.childNodes[11].childNodes[1].data
+    const ppg = +this.parentNode.parentNode.childNodes[13].childNodes[1].data
+    const ppp = +this.parentNode.parentNode.childNodes[15].childNodes[1].data
     console.log(gPlayed)
-    // const sName = this.parentNode.childNodes[1].innerText
-    // const bName = this.parentNode.childNodes[3].innerText
-    // const tLikes = Number(this.parentNode.childNodes[5].innerText)
-    // try{
-    //     const response = await fetch('addOneLike', {
-    //         method: 'put',
-    //         headers: {'Content-Type': 'application/json'},
-    //         body: JSON.stringify({
-    //           'stageNameS': sName,
-    //           'birthNameS': bName,
-    //           'likesS': tLikes
-    //         })
-    //       })
-    //     const data = await response.json()
-    //     console.log(data)
-    //     location.reload()
+    try{
+        const response = await fetch('addGP', {
+            method: 'put',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+              'playerNameS': playerName,
+              'gamesPlayed': gPlayed,
+              'goalsScored': g,
+              'assists': a,
+              'points': p,
+              'penaltyMinutes': pim,
+              'powerPlayGoals': ppg,
+              'powerPlayPoints': ppp
+            })
+          })
+        const data = await response.json()
+        console.log(data)
+        location.reload()
 
-    // }catch(err){
-    //     console.log(err)
-    // }
+    }catch(err){
+        console.log(err)
+    }
+}
+
+// Remove game played
+
+const removeOneGP = document.querySelectorAll('.removeGP')
+
+Array.from(removeOneGP).forEach(element=>{
+    element.addEventListener('click', removeGP)
+})
+
+async function removeGP(){
+    const playerName = this.parentNode.parentNode.childNodes[1].innerText
+    const gPlayed = +this.parentNode.childNodes[1].data
+    const g = +this.parentNode.parentNode.childNodes[5].childNodes[1].data
+    const a = +this.parentNode.parentNode.childNodes[7].childNodes[1].data
+    const p = +this.parentNode.parentNode.childNodes[9].childNodes[1].data
+    const pim = +this.parentNode.parentNode.childNodes[11].childNodes[1].data
+    const ppg = +this.parentNode.parentNode.childNodes[13].childNodes[1].data
+    const ppp = +this.parentNode.parentNode.childNodes[15].childNodes[1].data
+    console.log(typeof playerName)
+    try{
+        const response = await fetch('removeGP', {
+            method: 'put',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+              'playerNameS': playerName,
+              'gamesPlayed': gPlayed,
+              'goalsScored': g,
+              'assists': a,
+              'points': p,
+              'penaltyMinutes': pim,
+              'powerPlayGoals': ppg,
+              'powerPlayPoints': ppp
+            })
+          })
+        const data = await response.json()
+        console.log(data)
+        location.reload()
+
+    }catch(err){
+        console.log(err)
+    }
+}
+
+// Add goal scored
+
+const addOneGoal = document.querySelectorAll('.addG')
+
+Array.from(addOneGoal).forEach(element=>{
+    element.addEventListener('click', addGoal)
+})
+
+async function addGoal(){
+    const playerName = this.parentNode.parentNode.childNodes[1].innerText
+    const gPlayed = +this.parentNode.parentNode.childNodes[3].childNodes[1].data
+    const g = +this.parentNode.parentNode.childNodes[5].childNodes[1].data
+    const a = +this.parentNode.parentNode.childNodes[7].childNodes[1].data
+    const p = +this.parentNode.parentNode.childNodes[9].childNodes[1].data
+    const pim = +this.parentNode.parentNode.childNodes[11].childNodes[1].data
+    const ppg = +this.parentNode.parentNode.childNodes[13].childNodes[1].data
+    const ppp = +this.parentNode.parentNode.childNodes[15].childNodes[1].data
+    console.log(g)
+    try{
+        const response = await fetch('addGoal', {
+            method: 'put',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+              'playerNameS': playerName,
+              'gamesPlayed': gPlayed,
+              'goalsScored': g,
+              'assists': a,
+              'points': p,
+              'penaltyMinutes': pim,
+              'powerPlayGoals': ppg,
+              'powerPlayPoints': ppp
+            })
+          })
+        const data = await response.json()
+        console.log(data)
+        location.reload()
+
+    }catch(err){
+        console.log(err)
+    }
+}
+
+// Remove goal scored
+
+const removeOneGoal = document.querySelectorAll('.removeG')
+
+Array.from(removeOneGoal).forEach(element=>{
+    element.addEventListener('click', removeGoal)
+})
+
+async function removeGoal(){
+    const playerName = this.parentNode.parentNode.childNodes[1].innerText
+    const gPlayed = +this.parentNode.parentNode.childNodes[3].childNodes[1].data
+    const g = +this.parentNode.parentNode.childNodes[5].childNodes[1].data
+    const a = +this.parentNode.parentNode.childNodes[7].childNodes[1].data
+    const p = +this.parentNode.parentNode.childNodes[9].childNodes[1].data
+    const pim = +this.parentNode.parentNode.childNodes[11].childNodes[1].data
+    const ppg = +this.parentNode.parentNode.childNodes[13].childNodes[1].data
+    const ppp = +this.parentNode.parentNode.childNodes[15].childNodes[1].data
+    console.log(g)
+    try{
+        const response = await fetch('removeGoal', {
+            method: 'put',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+              'playerNameS': playerName,
+              'gamesPlayed': gPlayed,
+              'goalsScored': g,
+              'assists': a,
+              'points': p,
+              'penaltyMinutes': pim,
+              'powerPlayGoals': ppg,
+              'powerPlayPoints': ppp
+            })
+          })
+        const data = await response.json()
+        console.log(data)
+        location.reload()
+
+    }catch(err){
+        console.log(err)
+    }
 }

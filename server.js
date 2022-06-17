@@ -69,6 +69,8 @@ app.delete('/deleteAwayTeam', (request, response) => {
 
 })
 
+//Add player to roster
+
 app.post('/addPlayer', (request, response)=>{
     db.collection('players').insertOne({playerName: request.body.playerName, gp: 0, g: 0, a: 0, p: 0, pim: 0, ppg: 0, ppp: 0})
     .then(result=>{
@@ -76,6 +78,8 @@ app.post('/addPlayer', (request, response)=>{
     })
     .catch(error => console.log(error))
 })
+
+//Delete player from roster
 
 app.delete('/deletePlayer',(request, response)=>{
     db.collection('players').deleteOne({playerName: request.body.playerNameS})
@@ -86,10 +90,12 @@ app.delete('/deletePlayer',(request, response)=>{
     .catch(error => console.log(error))
 })
 
+// Add gamesplayed
+
 app.put('/addGP', (request, response)=>{
-    db.collection('players').updateOne({playerName: request.body.playerName, gp: request.body.gamesPlayed, g: request.body.goalsScored, a: request.body.assists, p: request.body.points, pim: request.body.penaltyMinutes, ppg: request.body.powerPlayGoals, ppp: request.body.powerPlayPoints}, {
+    db.collection('players').updateOne({playerName: request.body.playerNameS, gp: request.body.gamesPlayed, g: request.body.goalsScored, a: request.body.assists, p: request.body.points, pim: request.body.penaltyMinutes, ppg: request.body.powerPlayGoals, ppp: request.body.powerPlayPoints}, {
         $set: {
-            gp:request.body.gamesPlayed + 1
+            gp: request.body.gamesPlayed + 1
           }
     },{
         sort: {_id: -1},
@@ -102,6 +108,63 @@ app.put('/addGP', (request, response)=>{
     .catch(error => console.error(error))
 })
 
+// Delete gamesplayed
+
+app.put('/removeGP', (request, response)=>{
+    db.collection('players').updateOne({playerName: request.body.playerNameS, gp: request.body.gamesPlayed, g: request.body.goalsScored, a: request.body.assists, p: request.body.points, pim: request.body.penaltyMinutes, ppg: request.body.powerPlayGoals, ppp: request.body.powerPlayPoints}, {
+        $set: {
+            gp: request.body.gamesPlayed - 1
+          }
+    },{
+        sort: {_id: -1},
+        upsert: true
+    })
+    .then(result => {
+        console.log('Removed One GP')
+        response.json('GP removed')
+    })
+    .catch(error => console.error(error))
+})
+
+// Add goals scored
+
+app.put('/addGoal', (request, response)=>{
+    console.log(request.body)
+    db.collection('players').updateOne({playerName: request.body.playerNameS, gp: request.body.gamesPlayed, g: request.body.goalsScored, a: request.body.assists, p: request.body.points, pim: request.body.penaltyMinutes, ppg: request.body.powerPlayGoals, ppp: request.body.powerPlayPoints}, {
+        $set: {
+            g: request.body.goalsScored + 1
+          }
+    },{
+        sort: {_id: -1},
+        upsert: true
+    })
+    .then(result => {
+        console.log('Added One G')
+        response.json('G Added')
+    })
+    .catch(error => console.error(error))
+})
+
+// Remove goals scored
+
+app.put('/removeGoal', (request, response)=>{
+    console.log(request.body)
+    db.collection('players').updateOne({playerName: request.body.playerNameS, gp: request.body.gamesPlayed, g: request.body.goalsScored, a: request.body.assists, p: request.body.points, pim: request.body.penaltyMinutes, ppg: request.body.powerPlayGoals, ppp: request.body.powerPlayPoints}, {
+        $set: {
+            g: request.body.goalsScored - 1
+          }
+    },{
+        sort: {_id: -1},
+        upsert: true
+    })
+    .then(result => {
+        console.log('Added One G')
+        response.json('G Added')
+    })
+    .catch(error => console.error(error))
+})
+
+// Listen on port below
 
 app.listen(PORT, () =>{
     console.log(`Connected to port ${PORT}`)
