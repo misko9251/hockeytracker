@@ -20,8 +20,8 @@
     <nav>
         <h3>PuckTracker</h3>
         <ul>
-            <li>Home</li>
-            <li>Roster</li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/enterInfo">Roster</a></li>
             <li>Gameflow</li>
             <li>FAQ</li>
         </ul>
@@ -56,14 +56,14 @@
                     </thead>
                              <% for(var i=0; i < data.length; i++) { %>
                                  <tr>
-                                   <td><%= data[i].playerName %></td>
-                                   <td><span class="subtract">- </span><%= data[i].gp %><span class="add"> +</span></td>
-                                   <td><span class="subtract">- </span><%= data[i].g %><span class="add"> +</span></td>
-                                   <td><span class="subtract">- </span><%= data[i].a %><span class="add"> +</span></td>
-                                   <td><span class="subtract">- </span><%= data[i].p %><span class="add"> +</span></td>
-                                   <td><span class="subtract">- </span><%= data[i].pim %><span class="add"> +</span></td>
-                                   <td><span class="subtract">- </span><%= data[i].ppg %><span class="add"> +</span></td>
-                                   <td><span class="subtract">- </span><%= data[i].ppp %><span class="add"> +</span></td>
+                                   <td><span class="trashCan"><img class ="trash" src="photos/trash.png"></span><%= data[i].playerName %></td>
+                                   <td><span class="minus">- </span><%= data[i].gp %><span class="add addGP"> +</span></td>
+                                   <td><span class="minus">- </span><%= data[i].g %><span class="add"> +</span></td>
+                                   <td><span class="minus">- </span><%= data[i].a %><span class="add"> +</span></td>
+                                   <td><span class="minus">- </span><%= data[i].p %><span class="add"> +</span></td>
+                                   <td><span class="minus">- </span><%= data[i].pim %><span class="add"> +</span></td>
+                                   <td><span class="minus">- </span><%= data[i].ppg %><span class="add"> +</span></td>
+                                   <td><span class="minus">- </span><%= data[i].ppp %><span class="add"> +</span></td>
                                  </tr>
                               <% } %>
              </table>

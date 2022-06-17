@@ -77,6 +77,32 @@ app.post('/addPlayer', (request, response)=>{
     .catch(error => console.log(error))
 })
 
+app.delete('/deletePlayer',(request, response)=>{
+    db.collection('players').deleteOne({playerName: request.body.playerNameS})
+    .then(result => {
+        console.log('Player deleted')
+        response.json('Player deleted')
+    })
+    .catch(error => console.log(error))
+})
+
+app.put('/addGP', (request, response)=>{
+    db.collection('players').updateOne({playerName: request.body.playerName, gp: request.body.gamesPlayed, g: request.body.goalsScored, a: request.body.assists, p: request.body.points, pim: request.body.penaltyMinutes, ppg: request.body.powerPlayGoals, ppp: request.body.powerPlayPoints}, {
+        $set: {
+            gp:request.body.gamesPlayed + 1
+          }
+    },{
+        sort: {_id: -1},
+        upsert: true
+    })
+    .then(result => {
+        console.log('Added One GP')
+        response.json('GP Added')
+    })
+    .catch(error => console.error(error))
+})
+
+
 app.listen(PORT, () =>{
     console.log(`Connected to port ${PORT}`)
 })
