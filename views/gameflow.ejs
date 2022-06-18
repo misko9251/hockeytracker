@@ -28,57 +28,16 @@
     </nav>
     <section class="headerContainer">
         <header >
-            <h1>SET YOUR ROSTER AND KEEP TRACK</h1>
-            <p>Keep track of the entire squad with the simple interface provided below.</p>
+            <h1>GAMEFLOW</h1>
+            <p>Never miss a moment with PuckTracker's GAMEFLOW. Available all season long so you get around-the-clock coverage of youth hockey.</p>
         </header>
         <section class="rosterContainer">
             <header>
-                <h3>Home Team Roster</h3>
+                <h3>Capture all of the action during a game, including shots, goals, assists, missed/blocked shots - the power is in your hands!</h3>
                 <p>Check out our FAQ for clarification</p>
             </header>
-            <section class="tableContainer">
-                <form action="/addPlayer" method="POST">
-                    <input type="text" placeholder="Insert Player Name" name="playerName">
-                    <input value="Enter" type="submit">
-                </form>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>GP</th>
-                            <th>G</th>
-                            <th>A</th>
-                            <th>P</th>
-                            <th>PIM</th>
-                            <th>PPG</th>
-                            <th>PPP</th>
-                        </tr>
-                    </thead>
-                             <% for(var i=0; i < data.length; i++) { %>
-                                 <tr>
-                                   <td><span class="trashCan"><img class ="trash" src="photos/trash.png"></span><%= data[i].playerName %></td>
-                                   <td><span class="minus removeGP">- </span><%= data[i].gp %><span class="add addGP"> +</span></td>
-                                   <td><span class="minus removeG">- </span><%= data[i].g %><span class="add addG"> +</span></td>
-                                   <td><span class="minus removeA">- </span><%= data[i].a %><span class="add addA"> +</span></td>
-                                   <td><span class="minus"></span><%= data[i].p %><span class="add"></span></td>
-                                   <td><span class="minus removePIM">- </span><%= data[i].pim %><span class="add addPIM"> +</span></td>
-                                   <td><span class="minus removePPG">- </span><%= data[i].ppg %><span class="add addPPG"> +</span></td>
-                                   <td><span class="minus removePPP">- </span><%= data[i].ppp %><span class="add addPPP"> +</span></td>
-                                 </tr>
-                              <% } %>
-             </table>
-            </section>
-        </section>
-        <section class="gameflowButton">
-            <button onclick="location.href = '/gameFlow'"">HEAD TO GAMEFLOW</button>
-        </section>
-    </section>
-    <script src="js/main.js"></script>
-</body>
-</html>
 
-        <!-- <section class="gameflowContainer">
-            <section class="pickTeams">
+            <section>
                 <section class="homeTeam">
                     <h2>Home Team</h2>
                     <form action="/homeTeam" method="POST">
@@ -96,6 +55,7 @@
                           </ul>
                     </h3>
                 </section>
+
                 <section class="awayTeam">
                     <h2>Away Team</h2>
                     <form action="/awayTeam" method="POST">
@@ -113,7 +73,23 @@
                           </ul>
                     </h3>
                 </section>
+
+            </section>
+
+            <section class="tableContainer">
+                <form action="/addPlayer" method="POST">
+                    <textarea type="text" placeholder="Enter the play" name="gameflowInfo"></textarea><br>
+                    <input value="Enter" type="submit">
+                </form>
             </section>
         </section>
- -->
-
+        <section class="gameflowButton">
+            <button onclick="location.href = '/enterInfo'"">HEAD TO ROSTER</button>
+        </section>
+    </section>
+    <script src="js/main.js"></script>
+</body>
+</html>
+    <script src="js/main.js"></script>
+</body>
+</html>

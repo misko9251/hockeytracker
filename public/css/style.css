@@ -336,6 +336,7 @@ nav > h3 + ul > li {
 
 .gameflowButton > button:hover{
     background: #30d5c8;
+    border: 1px solid black;
     color: black;
 }
 
@@ -466,4 +467,10 @@ input[type=text]{
     content: "-";
     font-size: 13px;
     color: #30d5c8;
+  }
+
+  /* Gameflow page */
+
+  textarea{
+      width: 50%;
   }

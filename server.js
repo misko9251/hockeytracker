@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const PORT = 2121
 const MongoClient = require('mongodb').MongoClient
-const mongo = 'MongoStr'
+const mongo = 'mongodb+srv://misko9251:rangers30@cluster0.pnhtctz.mongodb.net/?retryWrites=true&w=majority'
 let db
 
 MongoClient.connect(mongo, { useUnifiedTopology: true}) 
@@ -35,10 +35,20 @@ app.get('/FAQ', (request, response)=>{
     response.render('faq.ejs')
 })
 
+app.get('/gameFlow', (request, response)=>{
+    db.collection('home').find().toArray().then(results=>{
+        db.collection('away').find().toArray().then(results2 => {
+            db.collection('players').find().toArray().then(results3 =>{
+                response.render('gameflow.ejs', {name: results, name2: results2, data: results3})
+            })
+        })
+    })
+})
+
 app.post('/homeTeam', (request, response)=>{
     db.collection('home').insertOne({homeTeam: request.body.homeTeam})
     .then(result =>{
-        response.redirect('/enterInfo')
+        response.redirect('/gameFlow')
     })
     .catch(error => console.log(error))
 })
@@ -57,7 +67,7 @@ app.delete('/deleteHomeTeam', (request, response) => {
 app.post('/awayTeam', (request, response)=>{
     db.collection('away').insertOne({awayTeam: request.body.awayTeam})
     .then(result =>{
-        response.redirect('/enterInfo')
+        response.redirect('/gameFlow')
     })
     .catch(error => console.log(error))
 })
