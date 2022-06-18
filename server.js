@@ -205,7 +205,119 @@ app.put('/removeAssist', (request, response)=>{
     .catch(error => console.error(error))
 })
 
+// Add PIM
 
+app.put('/addPenaltyInfractionMin', (request, response)=>{
+    console.log(request.body)
+    db.collection('players').updateOne({playerName: request.body.playerNameS, gp: request.body.gamesPlayed, g: request.body.goalsScored, a: request.body.assists, p: request.body.points, pim: request.body.penaltyMinutes, ppg: request.body.powerPlayGoals, ppp: request.body.powerPlayPoints}, {
+        $set: {
+            pim: request.body.penaltyMinutes + 1
+          }
+    },{
+        sort: {_id: -1},
+        upsert: true
+    })
+    .then(result => {
+        console.log('Added One A')
+        response.json('A Added')
+    })
+    .catch(error => console.error(error))
+})
+
+// Remove PIM
+
+app.put('/removePenaltyInfractionMin', (request, response)=>{
+    console.log(request.body)
+    db.collection('players').updateOne({playerName: request.body.playerNameS, gp: request.body.gamesPlayed, g: request.body.goalsScored, a: request.body.assists, p: request.body.points, pim: request.body.penaltyMinutes, ppg: request.body.powerPlayGoals, ppp: request.body.powerPlayPoints}, {
+        $set: {
+            pim: request.body.penaltyMinutes - 1
+          }
+    },{
+        sort: {_id: -1},
+        upsert: true
+    })
+    .then(result => {
+        console.log('Added One A')
+        response.json('A Added')
+    })
+    .catch(error => console.error(error))
+})
+
+// Add PPG
+
+app.put('/addPPGPoints', (request, response)=>{
+    console.log(request.body)
+    db.collection('players').updateOne({playerName: request.body.playerNameS, gp: request.body.gamesPlayed, g: request.body.goalsScored, a: request.body.assists, p: request.body.points, pim: request.body.penaltyMinutes, ppg: request.body.powerPlayGoals, ppp: request.body.powerPlayPoints}, {
+        $set: {
+            ppg: request.body.powerPlayGoals + 1
+          }
+    },{
+        sort: {_id: -1},
+        upsert: true
+    })
+    .then(result => {
+        console.log('Added One A')
+        response.json('A Added')
+    })
+    .catch(error => console.error(error))
+})
+
+// Remove PPG
+
+app.put('/removePPGPoints', (request, response)=>{
+    console.log(request.body)
+    db.collection('players').updateOne({playerName: request.body.playerNameS, gp: request.body.gamesPlayed, g: request.body.goalsScored, a: request.body.assists, p: request.body.points, pim: request.body.penaltyMinutes, ppg: request.body.powerPlayGoals, ppp: request.body.powerPlayPoints}, {
+        $set: {
+            ppg: request.body.powerPlayGoals - 1
+          }
+    },{
+        sort: {_id: -1},
+        upsert: true
+    })
+    .then(result => {
+        console.log('Added One A')
+        response.json('A Added')
+    })
+    .catch(error => console.error(error))
+})
+
+// Add PPP
+
+app.put('/addPPPPoints', (request, response)=>{
+    console.log(request.body)
+    db.collection('players').updateOne({playerName: request.body.playerNameS, gp: request.body.gamesPlayed, g: request.body.goalsScored, a: request.body.assists, p: request.body.points, pim: request.body.penaltyMinutes, ppg: request.body.powerPlayGoals, ppp: request.body.powerPlayPoints}, {
+        $set: {
+            ppp: request.body.powerPlayPoints + 1
+          }
+    },{
+        sort: {_id: -1},
+        upsert: true
+    })
+    .then(result => {
+        console.log('Added One A')
+        response.json('A Added')
+    })
+    .catch(error => console.error(error))
+})
+
+// Remove PPP
+
+app.put('/removePPPPoints', (request, response)=>{
+    console.log(request.body)
+    db.collection('players').updateOne({playerName: request.body.playerNameS, gp: request.body.gamesPlayed, g: request.body.goalsScored, a: request.body.assists, p: request.body.points, pim: request.body.penaltyMinutes, ppg: request.body.powerPlayGoals, ppp: request.body.powerPlayPoints}, {
+        $set: {
+            ppp: request.body.powerPlayPoints - 1
+          }
+    },{
+        sort: {_id: -1},
+        upsert: true
+    })
+    .then(result => {
+        console.log('Added One A')
+        response.json('A Added')
+    })
+    .catch(error => console.error(error))
+})
 
 // Listen on port below
 

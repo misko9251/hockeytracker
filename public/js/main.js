@@ -333,3 +333,255 @@ async function removeAssist(){
         console.log(err)
     }
 }
+
+// Add PIM
+
+const addPenMins = document.querySelectorAll('.addPIM')
+
+Array.from(addPenMins).forEach(element=>{
+    element.addEventListener('click', addPenaltyInfractionMin)
+})
+
+async function addPenaltyInfractionMin(){
+    const playerName = this.parentNode.parentNode.childNodes[1].innerText
+    const gPlayed = +this.parentNode.parentNode.childNodes[3].childNodes[1].data
+    const g = +this.parentNode.parentNode.childNodes[5].childNodes[1].data
+    const a = +this.parentNode.parentNode.childNodes[7].childNodes[1].data
+    const p = +this.parentNode.parentNode.childNodes[9].childNodes[1].data
+    const pim = +this.parentNode.parentNode.childNodes[11].childNodes[1].data
+    const ppg = +this.parentNode.parentNode.childNodes[13].childNodes[1].data
+    const ppp = +this.parentNode.parentNode.childNodes[15].childNodes[1].data
+    console.log(g)
+    try{
+        const response = await fetch('addPenaltyInfractionMin', {
+            method: 'put',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+              'playerNameS': playerName,
+              'gamesPlayed': gPlayed,
+              'goalsScored': g,
+              'assists': a,
+              'points': p,
+              'penaltyMinutes': pim,
+              'powerPlayGoals': ppg,
+              'powerPlayPoints': ppp
+            })
+          })
+        const data = await response.json()
+        console.log(data)
+        location.reload()
+
+    }catch(err){
+        console.log(err)
+    }
+}
+
+// Remove PIM
+
+const removePenMins = document.querySelectorAll('.removePIM')
+
+Array.from(removePenMins).forEach(element=>{
+    element.addEventListener('click', removePenaltyInfractionMin)
+})
+
+async function removePenaltyInfractionMin(){
+    const playerName = this.parentNode.parentNode.childNodes[1].innerText
+    const gPlayed = +this.parentNode.parentNode.childNodes[3].childNodes[1].data
+    const g = +this.parentNode.parentNode.childNodes[5].childNodes[1].data
+    const a = +this.parentNode.parentNode.childNodes[7].childNodes[1].data
+    const p = +this.parentNode.parentNode.childNodes[9].childNodes[1].data
+    const pim = +this.parentNode.parentNode.childNodes[11].childNodes[1].data
+    const ppg = +this.parentNode.parentNode.childNodes[13].childNodes[1].data
+    const ppp = +this.parentNode.parentNode.childNodes[15].childNodes[1].data
+    console.log(g)
+    try{
+        const response = await fetch('removePenaltyInfractionMin', {
+            method: 'put',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+              'playerNameS': playerName,
+              'gamesPlayed': gPlayed,
+              'goalsScored': g,
+              'assists': a,
+              'points': p,
+              'penaltyMinutes': pim,
+              'powerPlayGoals': ppg,
+              'powerPlayPoints': ppp
+            })
+          })
+        const data = await response.json()
+        console.log(data)
+        location.reload()
+
+    }catch(err){
+        console.log(err)
+    }
+}
+
+// Add PPG
+
+const addPPGs = document.querySelectorAll('.addPPG')
+
+Array.from(addPPGs).forEach(element=>{
+    element.addEventListener('click', addPPGPoints)
+})
+
+async function addPPGPoints(){
+    const playerName = this.parentNode.parentNode.childNodes[1].innerText
+    const gPlayed = +this.parentNode.parentNode.childNodes[3].childNodes[1].data
+    const g = +this.parentNode.parentNode.childNodes[5].childNodes[1].data
+    const a = +this.parentNode.parentNode.childNodes[7].childNodes[1].data
+    const p = +this.parentNode.parentNode.childNodes[9].childNodes[1].data
+    const pim = +this.parentNode.parentNode.childNodes[11].childNodes[1].data
+    const ppg = +this.parentNode.parentNode.childNodes[13].childNodes[1].data
+    const ppp = +this.parentNode.parentNode.childNodes[15].childNodes[1].data
+    console.log(g)
+    try{
+        const response = await fetch('addPPGPoints', {
+            method: 'put',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+              'playerNameS': playerName,
+              'gamesPlayed': gPlayed,
+              'goalsScored': g,
+              'assists': a,
+              'points': p,
+              'penaltyMinutes': pim,
+              'powerPlayGoals': ppg,
+              'powerPlayPoints': ppp
+            })
+          })
+        const data = await response.json()
+        console.log(data)
+        location.reload()
+
+    }catch(err){
+        console.log(err)
+    }
+}
+
+// Remove PPG
+
+const removePPGs = document.querySelectorAll('.removePPG')
+
+Array.from(removePPGs).forEach(element=>{
+    element.addEventListener('click', removePPGPoints)
+})
+
+async function removePPGPoints(){
+    const playerName = this.parentNode.parentNode.childNodes[1].innerText
+    const gPlayed = +this.parentNode.parentNode.childNodes[3].childNodes[1].data
+    const g = +this.parentNode.parentNode.childNodes[5].childNodes[1].data
+    const a = +this.parentNode.parentNode.childNodes[7].childNodes[1].data
+    const p = +this.parentNode.parentNode.childNodes[9].childNodes[1].data
+    const pim = +this.parentNode.parentNode.childNodes[11].childNodes[1].data
+    const ppg = +this.parentNode.parentNode.childNodes[13].childNodes[1].data
+    const ppp = +this.parentNode.parentNode.childNodes[15].childNodes[1].data
+    console.log(g)
+    try{
+        const response = await fetch('removePPGPoints', {
+            method: 'put',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+              'playerNameS': playerName,
+              'gamesPlayed': gPlayed,
+              'goalsScored': g,
+              'assists': a,
+              'points': p,
+              'penaltyMinutes': pim,
+              'powerPlayGoals': ppg,
+              'powerPlayPoints': ppp
+            })
+          })
+        const data = await response.json()
+        console.log(data)
+        location.reload()
+
+    }catch(err){
+        console.log(err)
+    }
+}
+
+// Add PPPs
+
+const addPPPs = document.querySelectorAll('.addPPP')
+
+Array.from(addPPPs).forEach(element=>{
+    element.addEventListener('click', addPPPPoints)
+})
+
+async function addPPPPoints(){
+    const playerName = this.parentNode.parentNode.childNodes[1].innerText
+    const gPlayed = +this.parentNode.parentNode.childNodes[3].childNodes[1].data
+    const g = +this.parentNode.parentNode.childNodes[5].childNodes[1].data
+    const a = +this.parentNode.parentNode.childNodes[7].childNodes[1].data
+    const p = +this.parentNode.parentNode.childNodes[9].childNodes[1].data
+    const pim = +this.parentNode.parentNode.childNodes[11].childNodes[1].data
+    const ppg = +this.parentNode.parentNode.childNodes[13].childNodes[1].data
+    const ppp = +this.parentNode.parentNode.childNodes[15].childNodes[1].data
+    console.log(g)
+    try{
+        const response = await fetch('addPPPPoints', {
+            method: 'put',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+              'playerNameS': playerName,
+              'gamesPlayed': gPlayed,
+              'goalsScored': g,
+              'assists': a,
+              'points': p,
+              'penaltyMinutes': pim,
+              'powerPlayGoals': ppg,
+              'powerPlayPoints': ppp
+            })
+          })
+        const data = await response.json()
+        console.log(data)
+        location.reload()
+
+    }catch(err){
+        console.log(err)
+    }
+}
+
+// Remove PPPs
+
+const removePPPs = document.querySelectorAll('.removePPP')
+
+Array.from(removePPPs).forEach(element=>{
+    element.addEventListener('click', removePPPPoints)
+})
+
+async function removePPPPoints(){
+    const playerName = this.parentNode.parentNode.childNodes[1].innerText
+    const gPlayed = +this.parentNode.parentNode.childNodes[3].childNodes[1].data
+    const g = +this.parentNode.parentNode.childNodes[5].childNodes[1].data
+    const a = +this.parentNode.parentNode.childNodes[7].childNodes[1].data
+    const p = +this.parentNode.parentNode.childNodes[9].childNodes[1].data
+    const pim = +this.parentNode.parentNode.childNodes[11].childNodes[1].data
+    const ppg = +this.parentNode.parentNode.childNodes[13].childNodes[1].data
+    const ppp = +this.parentNode.parentNode.childNodes[15].childNodes[1].data
+    console.log(g)
+    try{
+        const response = await fetch('removePPPPoints', {
+            method: 'put',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+              'playerNameS': playerName,
+              'gamesPlayed': gPlayed,
+              'goalsScored': g,
+              'assists': a,
+              'points': p,
+              'penaltyMinutes': pim,
+              'powerPlayGoals': ppg,
+              'powerPlayPoints': ppp
+            })
+          })
+        const data = await response.json()
+        console.log(data)
+        location.reload()
+
+    }catch(err){
+        console.log(err)
+    }
+}
