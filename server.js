@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const PORT = 2121
 const MongoClient = require('mongodb').MongoClient
-const mongo = 'mongodb+srv://misko9251:rangers30@cluster0.pnhtctz.mongodb.net/?retryWrites=true&w=majority'
+const mongo = 'MongoStr'
 let db
 
 MongoClient.connect(mongo, { useUnifiedTopology: true}) 
@@ -29,6 +29,10 @@ app.get('/enterInfo', (request, response)=>{
             })
         })
     })
+})
+
+app.get('/FAQ', (request, response)=>{
+    response.render('faq.ejs')
 })
 
 app.post('/homeTeam', (request, response)=>{
