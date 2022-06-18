@@ -249,3 +249,87 @@ async function removeGoal(){
         console.log(err)
     }
 }
+
+// Add assist
+
+const addOneAssist = document.querySelectorAll('.addA')
+
+Array.from(addOneAssist).forEach(element=>{
+    element.addEventListener('click', addAssist)
+})
+
+async function addAssist(){
+    const playerName = this.parentNode.parentNode.childNodes[1].innerText
+    const gPlayed = +this.parentNode.parentNode.childNodes[3].childNodes[1].data
+    const g = +this.parentNode.parentNode.childNodes[5].childNodes[1].data
+    const a = +this.parentNode.parentNode.childNodes[7].childNodes[1].data
+    const p = +this.parentNode.parentNode.childNodes[9].childNodes[1].data
+    const pim = +this.parentNode.parentNode.childNodes[11].childNodes[1].data
+    const ppg = +this.parentNode.parentNode.childNodes[13].childNodes[1].data
+    const ppp = +this.parentNode.parentNode.childNodes[15].childNodes[1].data
+    console.log(g)
+    try{
+        const response = await fetch('addAssist', {
+            method: 'put',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+              'playerNameS': playerName,
+              'gamesPlayed': gPlayed,
+              'goalsScored': g,
+              'assists': a,
+              'points': p,
+              'penaltyMinutes': pim,
+              'powerPlayGoals': ppg,
+              'powerPlayPoints': ppp
+            })
+          })
+        const data = await response.json()
+        console.log(data)
+        location.reload()
+
+    }catch(err){
+        console.log(err)
+    }
+}
+
+// Remove assist
+
+const removeOneAssist = document.querySelectorAll('.removeA')
+
+Array.from(removeOneAssist).forEach(element=>{
+    element.addEventListener('click', removeAssist)
+})
+
+async function removeAssist(){
+    const playerName = this.parentNode.parentNode.childNodes[1].innerText
+    const gPlayed = +this.parentNode.parentNode.childNodes[3].childNodes[1].data
+    const g = +this.parentNode.parentNode.childNodes[5].childNodes[1].data
+    const a = +this.parentNode.parentNode.childNodes[7].childNodes[1].data
+    const p = +this.parentNode.parentNode.childNodes[9].childNodes[1].data
+    const pim = +this.parentNode.parentNode.childNodes[11].childNodes[1].data
+    const ppg = +this.parentNode.parentNode.childNodes[13].childNodes[1].data
+    const ppp = +this.parentNode.parentNode.childNodes[15].childNodes[1].data
+    console.log(g)
+    try{
+        const response = await fetch('removeAssist', {
+            method: 'put',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+              'playerNameS': playerName,
+              'gamesPlayed': gPlayed,
+              'goalsScored': g,
+              'assists': a,
+              'points': p,
+              'penaltyMinutes': pim,
+              'powerPlayGoals': ppg,
+              'powerPlayPoints': ppp
+            })
+          })
+        const data = await response.json()
+        console.log(data)
+        location.reload()
+
+    }catch(err){
+        console.log(err)
+    }
+}
