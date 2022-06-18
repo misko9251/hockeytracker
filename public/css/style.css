@@ -365,3 +365,105 @@ input[type=text]{
     border-radius: 20px;
     text-align: center;
 }
+
+/* FAQ */
+
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  .faqSectionOne{
+    background-image: linear-gradient(to bottom, #a4508b 0%, #5f0a87 74%);
+    height: 200px;
+    font-family: 'Rubik', sans-serif;
+    color: white;
+    font-size: 3rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.faqSectionOne > h3{
+    animation: fadeIn 3s
+}
+
+.mainFaqContainer{
+    background-color: #30d5c8;
+    height: 100vh;
+    padding: 1%;
+}
+
+.innerFaqContainer{
+    background-color: #dce2e2;
+    border-radius: 5px;
+    height: 100vh;
+    border: 1px solid black;
+    font-family: 'Rubik', sans-serif;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.innerFaqContainer > h2{
+    padding: 2%;
+}
+
+/* Accordion FAQ section */
+
+.accordion {
+    background-color: black;
+    color: #30d5c8;
+    border: 1px solid #30d5c8;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    transition: 0.5s;
+    font-family: 'Rubik', sans-serif;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.active, .accordion:hover {
+    background-color: rgb(90, 89, 89);
+}
+
+.panel {
+    padding: 0 18px;
+    background-color: white;
+    display: none;
+    overflow: hidden;
+}
+
+.panel > p {
+    font-size: 1.5rem;
+    font-family: 'Joan', serif;
+    padding: 2%;
+}
+
+.abbv{
+    display: block;
+    font-family: 'Joan', serif;
+    font-size: 1.5rem;
+}
+
+.abbvUl{
+    padding: 2%;
+}
+
+.accordion:after {
+    content: '+';
+    font-size: 13px;
+    color: #30d5c8;
+    float: right;
+    margin-left: 5px;
+  }
+  
+  .active:after {
+    content: "-";
+    font-size: 13px;
+    color: #30d5c8;
+  }
