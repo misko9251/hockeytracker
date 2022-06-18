@@ -1,3 +1,21 @@
+let acc = document.querySelectorAll('.accordion')
+
+Array.from(acc).forEach((element)=>{
+    element.addEventListener('click', toggle)
+})
+
+function toggle() {
+    this.classList.toggle('active')
+    let panel = this.nextElementSibling
+    if(panel.style.display === 'block'){
+        panel.style.display = 'none';
+    }else{
+        panel.style.display = 'block'
+    }
+}
+
+
+
 // Add name of home team
 
 const deleteTeamOne = document.querySelectorAll('.deleteTeam1')
