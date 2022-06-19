@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const PORT = 2121
 const MongoClient = require('mongodb').MongoClient
-const mongo = 'mongodb+srv://misko9251:rangers30@cluster0.pnhtctz.mongodb.net/?retryWrites=true&w=majority'
+const mongo = MongoString
 let db
 
 MongoClient.connect(mongo, { useUnifiedTopology: true}) 
@@ -38,8 +38,8 @@ app.get('/FAQ', (request, response)=>{
 app.get('/gameFlow', (request, response)=>{
     db.collection('home').find().toArray().then(results=>{
         db.collection('away').find().toArray().then(results2 => {
-            db.collection('players').find().toArray().then(results3 =>{
-                response.render('gameflow.ejs', {name: results, name2: results2, data: results3})
+            db.collection('gameflow').find().toArray().then(results3 =>{
+                response.render('gameflow.ejs', {name: results, name2: results2, gameflowdata: results3 })
             })
         })
     })
@@ -76,6 +76,29 @@ app.delete('/deleteAwayTeam', (request, response) => {
     db.collection('away').deleteOne({awayTeam: request.body.teamToDelete2})
     .then(result => {
         console.log('Team Deleted')
+        console.log(request.body)
+        response.json('OK')
+    })
+    .catch(error => console.error(error))
+
+})
+
+// Add gameflow
+
+app.post('/addPlays', (request, response)=>{
+    db.collection('gameflow').insertOne({gameflowInfo: request.body.gameflowInfo})
+    .then(result=>{
+        response.redirect('/gameFlow')
+    })
+    .catch(error => console.log(error))
+})
+
+// Delete gameflow
+
+app.delete('/deleteGameFlowPlay', (request, response)=>{
+    db.collection('gameflow').deleteOne({gameflowInfo: request.body.gameflowInfoS})
+    .then(result => {
+        console.log('Play Deleted')
         console.log(request.body)
         response.json('OK')
     })

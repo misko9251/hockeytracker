@@ -71,6 +71,10 @@ li{
     cursor: pointer;
 }
 
+.deleteTeam1 + span, .deleteTeam2 + span{
+    font-family: 'Rubik', sans-serif;
+}
+
 /* Main Page */
 
 .puckTrackerMainPage{
@@ -103,7 +107,7 @@ li{
 
 .middle-container{
     height: 300px;
-    background-color: #EAF4F8;
+    background-image: linear-gradient(to bottom, #a4508b 0%, #5f0a87 74%);
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -126,7 +130,7 @@ li{
 .orange{
     width: 30%;
     height: 50%; 
-    background-color: #DA6B46;
+    background-color: whitesmoke;
     border-radius: 20px;
 }
 
@@ -164,8 +168,8 @@ footer > button{
 }
 
 footer > button:hover{
-    background-color: #DA6B46;
-    color: rgb(146, 140, 140);
+    background-color: rgb(204, 161, 204);
+    color: white;
 }
 
 a{
@@ -201,6 +205,12 @@ a{
 .homeTeam, .awayTeam{
     padding: 15px;
     height: 75px;
+    text-align: center;
+    font-family: 'Joan', serif;
+}
+
+.homeTeam > h2, .awayTeam > h2{
+    font-family: 'Rubik', sans-serif;
 }
 
 .opponents{
@@ -276,7 +286,8 @@ nav > h3 + ul > li {
 }
 
 .headerContainer{
-    height: 100vh;
+    /* height: 100vh; */
+    padding-bottom: 5%;
     background-color: #a4508b;
     background-image: linear-gradient(to bottom, #a4508b 0%, #5f0a87 74%);
     
@@ -394,14 +405,12 @@ input[type=text]{
 
 .mainFaqContainer{
     background-color: #30d5c8;
-    height: 100vh;
     padding: 1%;
 }
 
 .innerFaqContainer{
     background-color: #dce2e2;
     border-radius: 5px;
-    height: 100vh;
     border: 1px solid black;
     font-family: 'Rubik', sans-serif;
     font-size: 2rem;
@@ -471,6 +480,21 @@ input[type=text]{
 
   /* Gameflow page */
 
-  textarea{
+  .gameFlowInput{
       width: 50%;
+      height: 40px;
+      text-align: left;
   }
+
+header > h3{
+      width: 60%;
+      margin: 0 auto;
+}
+
+.gameFlowHeader{
+    text-align: center;
+}
+
+.gameflowTable{
+    width: 50%;
+}

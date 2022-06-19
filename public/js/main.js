@@ -1,6 +1,6 @@
-let acc = document.querySelectorAll('.accordion')
+let faq = document.querySelectorAll('.accordion')
 
-Array.from(acc).forEach((element)=>{
+Array.from(faq).forEach((element)=>{
     element.addEventListener('click', toggle)
 })
 
@@ -25,7 +25,7 @@ Array.from(deleteTeamOne).forEach((element)=>{
 })
 
 async function deleteHomeTeam(){
-    const teamName = this.parentNode.childNodes[1].innerText
+    const teamName = this.parentNode.childNodes[3].innerText
     console.log(teamName)
     try{
         const response = await fetch('deleteHomeTeam', {
@@ -53,7 +53,7 @@ Array.from(deleteTeamTwo).forEach((element)=>{
 })
 
 async function deleteAwayTeam(){
-    const teamName2 = this.parentNode.childNodes[1].innerText
+    const teamName2 = this.parentNode.childNodes[3].innerText
     console.log(teamName2)
     try{
         const response = await fetch('deleteAwayTeam', {
@@ -594,6 +594,34 @@ async function removePPPPoints(){
               'powerPlayGoals': ppg,
               'powerPlayPoints': ppp
             })
+          })
+        const data = await response.json()
+        console.log(data)
+        location.reload()
+
+    }catch(err){
+        console.log(err)
+    }
+}
+
+// Delete Play
+
+const deletePlayTrashButton = document.querySelectorAll('.gameFlowDelete')
+
+Array.from(deletePlayTrashButton).forEach((element)=>{
+    element.addEventListener('click', deleteGameFlowPlay)
+})
+
+async function deleteGameFlowPlay(){
+    const playToDelete = this.parentNode.childNodes[1].textContent
+    console.log(playToDelete)
+    try{
+        const response = await fetch('deleteGameFlowPlay', {
+            method: 'delete',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                'gameflowInfoS': playToDelete
+              })
           })
         const data = await response.json()
         console.log(data)

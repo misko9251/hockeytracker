@@ -29,15 +29,11 @@
     <section class="headerContainer">
         <header >
             <h1>GAMEFLOW</h1>
-            <p>Never miss a moment with PuckTracker's GAMEFLOW. Available all season long so you get around-the-clock coverage of youth hockey.</p>
+            <p>Never miss a moment with PuckTracker's GAMEFLOW. Available all season long so you get around-the-clock coverage of youth hockey.<br>Check out our FAQ for clarification.</p>
         </header>
         <section class="rosterContainer">
-            <header>
-                <h3>Capture all of the action during a game, including shots, goals, assists, missed/blocked shots - the power is in your hands!</h3>
-                <p>Check out our FAQ for clarification</p>
-            </header>
 
-            <section>
+            <section class="pickTeams">
                 <section class="homeTeam">
                     <h2>Home Team</h2>
                     <form action="/homeTeam" method="POST">
@@ -48,8 +44,8 @@
                         <ul class="firstTeam">
                             <% for(var i = 0; i < name.length; i++) {%>
                               <li class="quote">
-                                <span><%= name[i].homeTeam %></span>
                                 <span class="deleteTeam1"><img class="trash" src="photos/trash.png"></span>
+                                <span><%= name[i].homeTeam %></span>
                               </li>
                             <% } %>
                           </ul>
@@ -66,8 +62,8 @@
                         <ul class="secondTeam">
                             <% for(var i = 0; i < name2.length; i++) {%>
                               <li class="quote">
-                                <span><%= name2[i].awayTeam %></span>
                                 <span class="deleteTeam2"><img class="trash" src="photos/trash.png"></span>
+                                <span><%= name2[i].awayTeam %></span>
                               </li>
                             <% } %>
                           </ul>
@@ -76,20 +72,33 @@
 
             </section>
 
+            <header class="gameFlowHeader">
+                <h3>Capture all of the action during a game, including shots, goals, assists, missed/blocked shots - the power is in your hands!</h3>
+            </header>
+
             <section class="tableContainer">
-                <form action="/addPlayer" method="POST">
-                    <textarea type="text" placeholder="Enter the play" name="gameflowInfo"></textarea><br>
+                <form action="/addPlays" method="POST">
+                    <input class="gameFlowInput" type="text" placeholder="Enter the play" name="gameflowInfo"><br>
                     <input value="Enter" type="submit">
                 </form>
             </section>
+            <table class="gameflowTable">
+                <thead>
+                    <tr>
+                        <th>LIVE GAME ACTION</th>
+                    </tr>
+                </thead>
+                <% for(var i=0; i < gameflowdata.length; i++) { %>
+                    <tr>
+                      <td><span class="gameFlowDelete"><img class ="trash" src="photos/trash.png"></span><%= gameflowdata[i].gameflowInfo %></td>
+                    </tr>
+                 <% } %>
+            </table>
         </section>
         <section class="gameflowButton">
             <button onclick="location.href = '/enterInfo'"">HEAD TO ROSTER</button>
         </section>
     </section>
-    <script src="js/main.js"></script>
-</body>
-</html>
     <script src="js/main.js"></script>
 </body>
 </html>
